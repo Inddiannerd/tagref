@@ -1,88 +1,249 @@
 [
   {
-    "name": "a",
-    "categories": ["Text", "Interactive"],
-    "description": "Defines a hyperlink.",
-    "attributes": [
-      {"name":"href","type":"URL","required":true,"description":"Target link URL"},
-      {"name":"target","type":"string","required":false,"description":"Where to open the link"},
-      {"name":"rel","type":"string","required":false,"description":"Relationship between current document and linked document"}
-    ],
-    "example": "<a href=\"https://example.com\" target=\"_blank\">Visit Example</a>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a",
-    "notes": "Use rel=\"noopener\" with target=\"_blank\" for security."
+    "name": "!DOCTYPE",
+    "categories": ["Metadata"],
+    "description": "Declares the document type and version of HTML.",
+    "attributes": [],
+    "example": "<!DOCTYPE html>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Glossary/Doctype",
+    "notes": "Must be the first item in an HTML document."
   },
   {
-    "name": "img",
-    "categories": ["Media"],
-    "description": "Embeds an image into the page.",
+    "name": "html",
+    "categories": ["Structure"],
+    "description": "Represents the root of an HTML document.",
     "attributes": [
-      {"name":"src","type":"URL","required":true,"description":"Image source"},
-      {"name":"alt","type":"string","required":true,"description":"Text alternative for accessibility"},
-      {"name":"width","type":"number","required":false,"description":"Image width"},
-      {"name":"height","type":"number","required":false,"description":"Image height"}
+      {"name":"lang","type":"string","required":false,"description":"Language of the document content"}
     ],
-    "example": "<img src=\"cat.jpg\" alt=\"A cute cat\" />",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
-    "notes": "Always provide alt text for accessibility."
+    "example": "<html lang=\"en\">...</html>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html",
+    "notes": "All other elements must be descendants of this element."
   },
   {
-    "name": "div",
+    "name": "head",
+    "categories": ["Structure"],
+    "description": "Contains machine-readable information (metadata) about the document.",
+    "attributes": [],
+    "example": "<head><title>Page Title</title></head>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/head",
+    "notes": "Contains metadata, title, styles, and scripts."
+  },
+  {
+    "name": "title",
+    "categories": ["Metadata"],
+    "description": "Defines the document's title that is shown in a browser's title bar or a page's tab.",
+    "attributes": [],
+    "example": "<title>My Page Title</title>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title",
+    "notes": "Required in all HTML documents."
+  },
+  {
+    "name": "body",
+    "categories": ["Structure"],
+    "description": "Represents the content of an HTML document.",
+    "attributes": [
+      {"name":"bgcolor","type":"string","required":false,"description":"Background color (deprecated)"},
+      {"name":"background","type":"string","required":false,"description":"Background image URL (deprecated)"}
+    ],
+    "example": "<body><h1>Page Title</h1><p>Page content...</p></body>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body",
+    "notes": "There can be only one <body> element in a document."
+  },
+  {
+    "name": "base",
+    "categories": ["Metadata"],
+    "description": "Specifies the base URL to use for all relative URLs in a document.",
+    "attributes": [
+      {"name":"href","type":"URL","required":false,"description":"Base URL for relative URLs"},
+      {"name":"target","type":"string","required":false,"description":"Default target for all hyperlinks"}
+    ],
+    "example": "<base href=\"https://example.com/\" target=\"_blank\">",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base",
+    "notes": "Must be placed in the <head> section. Only one <base> element is allowed."
+  },
+  {
+    "name": "link",
+    "categories": ["Metadata"],
+    "description": "Specifies relationships between the current document and an external resource.",
+    "attributes": [
+      {"name":"href","type":"URL","required":true,"description":"Location of the linked resource"},
+      {"name":"rel","type":"string","required":true,"description":"Relationship between current document and linked resource"},
+      {"name":"type","type":"string","required":false,"description":"MIME type of the linked resource"},
+      {"name":"media","type":"string","required":false,"description":"Media type for which the linked resource was designed"}
+    ],
+    "example": "<link rel=\"stylesheet\" href=\"styles.css\">",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link",
+    "notes": "Commonly used for linking stylesheets."
+  },
+  {
+    "name": "meta",
+    "categories": ["Metadata"],
+    "description": "Represents metadata that cannot be represented by other HTML meta-related elements.",
+    "attributes": [
+      {"name":"charset","type":"string","required":false,"description":"Character encoding declaration"},
+      {"name":"name","type":"string","required":false,"description":"Name of the metadata"},
+      {"name":"content","type":"string","required":false,"description":"Value of the metadata"},
+      {"name":"http-equiv","type":"string","required":false,"description":"Pragma directive"}
+    ],
+    "example": "<meta charset=\"utf-8\">",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta",
+    "notes": "Used for character encoding, viewport settings, and other metadata."
+  },
+  {
+    "name": "style",
+    "categories": ["Metadata"],
+    "description": "Contains style information for a document, or part of a document.",
+    "attributes": [
+      {"name":"type","type":"string","required":false,"description":"MIME type of the style language"},
+      {"name":"media","type":"string","required":false,"description":"Media type for which the styles were designed"}
+    ],
+    "example": "<style>body { color: red; }</style>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/style",
+    "notes": "Contains CSS rules."
+  },
+  {
+    "name": "address",
     "categories": ["Content"],
-    "description": "Generic container for flow content.",
-    "attributes": [
-      {"name":"class","type":"string","required":false,"description":"CSS class names"},
-      {"name":"id","type":"string","required":false,"description":"Unique identifier"}
-    ],
-    "example": "<div class=\"container\">Content here</div>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div",
-    "notes": "Use semantic elements like <main>, <section>, <article> when appropriate."
+    "description": "Represents contact information for the author/owner of a document.",
+    "attributes": [],
+    "example": "<address>Written by <a href=\"mailto:webmaster@example.com\">Jon Doe</a></address>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address",
+    "notes": "Typically used in the <footer> section of a document."
   },
   {
-    "name": "form",
-    "categories": ["Forms"],
-    "description": "Represents a document section containing interactive controls for submitting information.",
-    "attributes": [
-      {"name":"action","type":"URL","required":false,"description":"URL to submit form to"},
-      {"name":"method","type":"string","required":false,"description":"HTTP method for form submission"}
-    ],
-    "example": "<form action=\"/submit\" method=\"post\">\n  <input type=\"text\" name=\"username\" />\n  <button type=\"submit\">Submit</button>\n</form>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
-    "notes": "Always associate form controls with labels for accessibility."
+    "name": "article",
+    "categories": ["Content"],
+    "description": "Represents a self-contained composition in a document.",
+    "attributes": [],
+    "example": "<article><h2>Article Title</h2><p>Article content...</p></article>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article",
+    "notes": "Use for blog posts, forum posts, news stories, comments, etc."
   },
   {
-    "name": "input",
-    "categories": ["Forms"],
-    "description": "Used to create interactive controls for web-based forms.",
-    "attributes": [
-      {"name":"type","type":"string","required":false,"description":"Type of control to display"},
-      {"name":"name","type":"string","required":false,"description":"Name of the control"},
-      {"name":"value","type":"string","required":false,"description":"Initial value"},
-      {"name":"placeholder","type":"string","required":false,"description":"Hint text"}
-    ],
-    "example": "<input type=\"text\" name=\"username\" placeholder=\"Enter your username\" />",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input",
-    "notes": "Different input types provide different keyboard layouts on mobile devices."
+    "name": "aside",
+    "categories": ["Content"],
+    "description": "Represents content indirectly related to the main content.",
+    "attributes": [],
+    "example": "<aside><h3>Related Links</h3><ul><li><a href=\"#\">Link 1</a></li></ul></aside>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside",
+    "notes": "Often used for sidebars, pull quotes, or advertisements."
   },
   {
-    "name": "table",
-    "categories": ["Table"],
-    "description": "Represents tabular data.",
-    "attributes": [
-      {"name":"border","type":"number","required":false,"description":"Border width"}
-    ],
-    "example": "<table>\n  <tr>\n    <th>Header 1</th>\n    <th>Header 2</th>\n  </tr>\n  <tr>\n    <td>Data 1</td>\n    <td>Data 2</td>\n  </tr>\n</table>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table",
-    "notes": "Use <thead>, <tbody>, and <tfoot> for better structure."
+    "name": "footer",
+    "categories": ["Content"],
+    "description": "Represents a footer for its nearest sectioning content or sectioning root element.",
+    "attributes": [],
+    "example": "<footer><p>Copyright 2023</p></footer>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer",
+    "notes": "Typically contains authorship, copyright, contact info, or related links."
+  },
+  {
+    "name": "header",
+    "categories": ["Content"],
+    "description": "Represents introductory content, typically a group of introductory or navigational aids.",
+    "attributes": [],
+    "example": "<header><h1>Page Title</h1><nav>...</nav></header>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header",
+    "notes": "Can contain headings, logo, search form, etc."
   },
   {
     "name": "h1",
     "categories": ["Text"],
-    "description": "Highest level heading element.",
+    "description": "Represents the top-level heading.",
     "attributes": [],
     "example": "<h1>Main Heading</h1>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1",
-    "notes": "Use only one <h1> per page for SEO and accessibility."
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+    "notes": "Should be used once per page for the main title."
+  },
+  {
+    "name": "h2",
+    "categories": ["Text"],
+    "description": "Represents a second-level heading.",
+    "attributes": [],
+    "example": "<h2>Section Heading</h2>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+    "notes": "Used for major section headings."
+  },
+  {
+    "name": "h3",
+    "categories": ["Text"],
+    "description": "Represents a third-level heading.",
+    "attributes": [],
+    "example": "<h3>Subsection Heading</h3>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+    "notes": "Used for subsection headings."
+  },
+  {
+    "name": "h4",
+    "categories": ["Text"],
+    "description": "Represents a fourth-level heading.",
+    "attributes": [],
+    "example": "<h4>Sub-subsection Heading</h4>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+    "notes": "Used for sub-subsection headings."
+  },
+  {
+    "name": "h5",
+    "categories": ["Text"],
+    "description": "Represents a fifth-level heading.",
+    "attributes": [],
+    "example": "<h5>Minor Heading</h5>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+    "notes": "Used for minor headings."
+  },
+  {
+    "name": "h6",
+    "categories": ["Text"],
+    "description": "Represents the lowest-level heading.",
+    "attributes": [],
+    "example": "<h6>Least Important Heading</h6>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements",
+    "notes": "Used for the least important headings."
+  },
+  {
+    "name": "hgroup",
+    "categories": ["Content"],
+    "description": "Represents a multi-level heading for a section of a document.",
+    "attributes": [],
+    "example": "<hgroup><h1>Main Title</h1><h2>Subtitle</h2></hgroup>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup",
+    "notes": "Groups related headings together."
+  },
+  {
+    "name": "main",
+    "categories": ["Content"],
+    "description": "Represents the dominant content of the body of a document.",
+    "attributes": [],
+    "example": "<main><p>Main content of the page...</p></main>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main",
+    "notes": "Should not include content that is repeated across pages."
+  },
+  {
+    "name": "nav",
+    "categories": ["Content"],
+    "description": "Represents a section of a page whose purpose is to provide navigation links.",
+    "attributes": [],
+    "example": "<nav><ul><li><a href=\"/home\">Home</a></li></ul></nav>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav",
+    "notes": "Intended for major navigation blocks."
+  },
+  {
+    "name": "section",
+    "categories": ["Content"],
+    "description": "Represents a standalone section of functionality or content.",
+    "attributes": [],
+    "example": "<section><h2>Chapter 1</h2><p>Content...</p></section>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section",
+    "notes": "Should have a heading and represent a thematic grouping of content."
+  },
+  {
+    "name": "div",
+    "categories": ["Content"],
+    "description": "A generic container for flow content with no special meaning.",
+    "attributes": [],
+    "example": "<div><p>Content in a generic container</p></div>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div",
+    "notes": "Use when no other semantic element is appropriate."
   },
   {
     "name": "p",
@@ -91,64 +252,87 @@
     "attributes": [],
     "example": "<p>This is a paragraph of text.</p>",
     "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p",
-    "notes": "Paragraphs are block-level elements."
+    "notes": "Automatically creates line breaks before and after."
   },
   {
-    "name": "script",
-    "categories": ["Scripting"],
-    "description": "Embeds or references executable code.",
-    "attributes": [
-      {"name":"src","type":"URL","required":false,"description":"External script resource"},
-      {"name":"type","type":"string","required":false,"description":"MIME type of the script"}
-    ],
-    "example": "<script src=\"app.js\"></script>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script",
-    "notes": "Place scripts at the end of <body> or use async/defer attributes."
-  },
-  {
-    "name": "meta",
-    "categories": ["Metadata"],
-    "description": "Represents metadata that cannot be represented by other HTML meta-related elements.",
-    "attributes": [
-      {"name":"charset","type":"string","required":false,"description":"Character encoding declaration"},
-      {"name":"name","type":"string","required":false,"description":"Metadata name"},
-      {"name":"content","type":"string","required":false,"description":"Metadata value"}
-    ],
-    "example": "<meta charset=\"utf-8\" />",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta",
-    "notes": "Meta tags must be in the <head> section."
-  },
-  {
-    "name": "audio",
-    "categories": ["Media"],
-    "description": "Embeds sound content in documents.",
-    "attributes": [
-      {"name":"src","type":"URL","required":false,"description":"Audio source"},
-      {"name":"controls","type":"boolean","required":false,"description":"Show browser controls"}
-    ],
-    "example": "<audio controls>\n  <source src=\"audio.mp3\" type=\"audio/mpeg\">\n  Your browser does not support the audio element.\n</audio>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
-    "notes": "Always provide fallback content for older browsers."
-  },
-  {
-    "name": "button",
-    "categories": ["Interactive"],
-    "description": "Represents a clickable button.",
-    "attributes": [
-      {"name":"type","type":"string","required":false,"description":"Button type (submit, reset, button)"},
-      {"name":"disabled","type":"boolean","required":false,"description":"Disable the button"}
-    ],
-    "example": "<button type=\"submit\">Submit Form</button>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button",
-    "notes": "Buttons are better for accessibility than <div> or <span> elements."
-  },
-  {
-    "name": "center",
-    "categories": ["Deprecated"],
-    "description": "Deprecated element for centering content.",
+    "name": "hr",
+    "categories": ["Text"],
+    "description": "Represents a thematic break between paragraph-level elements.",
     "attributes": [],
-    "example": "<center>Deprecated content</center>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center",
-    "notes": "Use CSS instead of this deprecated element."
+    "example": "<p>First paragraph</p><hr><p>Second paragraph</p>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hr",
+    "notes": "Self-closing tag. Represents a horizontal rule or break."
+  },
+  {
+    "name": "pre",
+    "categories": ["Text"],
+    "description": "Represents preformatted text which is to be presented exactly as written.",
+    "attributes": [],
+    "example": "<pre>function hello() {\n  console.log(\"Hello World\");\n}</pre>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre",
+    "notes": "Preserves whitespace and line breaks."
+  },
+  {
+    "name": "blockquote",
+    "categories": ["Text"],
+    "description": "Represents a section that is quoted from another source.",
+    "attributes": [
+      {"name":"cite","type":"URL","required":false,"description":"URL of the source of the quotation"}
+    ],
+    "example": "<blockquote cite=\"https://example.com/source\">Quote text here</blockquote>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote",
+    "notes": "Use <cite> element to reference the source."
+  },
+  {
+    "name": "ol",
+    "categories": ["Text"],
+    "description": "Represents an ordered list of items.",
+    "attributes": [
+      {"name":"type","type":"string","required":false,"description":"Type of numbering (1, A, a, I, i)"},
+      {"name":"start","type":"number","required":false,"description":"Starting value for the list"},
+      {"name":"reversed","type":"boolean","required":false,"description":"Whether the list should be displayed in descending order"}
+    ],
+    "example": "<ol><li>First item</li><li>Second item</li></ol>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol",
+    "notes": "Items are automatically numbered."
+  },
+  {
+    "name": "ul",
+    "categories": ["Text"],
+    "description": "Represents an unordered list of items.",
+    "attributes": [],
+    "example": "<ul><li>First item</li><li>Second item</li></ul>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul",
+    "notes": "Items are typically displayed with bullets."
+  },
+  {
+    "name": "li",
+    "categories": ["Text"],
+    "description": "Represents an item in a list.",
+    "attributes": [
+      {"name":"value","type":"number","required":false,"description":"Ordinal value of the list item"}
+    ],
+    "example": "<li>List item content</li>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li",
+    "notes": "Must be contained within <ol>, <ul>, or <menu>."
+  },
+  {
+    "name": "dl",
+    "categories": ["Text"],
+    "description": "Represents a description list.",
+    "attributes": [],
+    "example": "<dl><dt>Term</dt><dd>Description</dd></dl>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl",
+    "notes": "Contains <dt> (term) and <dd> (description) elements."
+  },
+  {
+    "name": "dt",
+    "categories": ["Text"],
+    "description": "Represents a term in a description list.",
+    "attributes": [],
+    "example": "<dt>HTML</dt>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt",
+    "notes": "Must be contained within <dl>."
   }
+
 ]

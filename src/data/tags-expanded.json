@@ -198,4 +198,6 @@
     "description": "Represents a fragment of computer code.",
     "attributes": [],
     "example": "<p>Use the <code>strong</code> element for important text.</p>",
-    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code"
+  }
+]
