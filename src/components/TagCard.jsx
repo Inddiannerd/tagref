@@ -1,15 +1,19 @@
 import React from 'react';
 
+const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 const highlightText = (text, searchTerm) => {
   if (!searchTerm) return text;
-  
-  const regex = new RegExp(`(${searchTerm})`, 'gi');
-  const parts = text.split(regex);
-  
-  return parts.map((part, index) => 
-    regex.test(part) ? 
-      <mark key={index} className="highlight">{part}</mark> : 
-      part
+  const source = String(text);
+  const escaped = escapeRegExp(searchTerm);
+  if (!escaped) return source;
+  const splitRe = new RegExp(`(${escaped})`, 'ig');
+  const testRe = new RegExp(escaped, 'i');
+  const parts = source.split(splitRe);
+  return parts.map((part, index) =>
+    testRe.test(part)
+      ? <mark key={index} className="highlight">{part}</mark>
+      : part
   );
 };
 

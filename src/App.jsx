@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import SearchBar from './components/SearchBar';
 import CategoryFilter from './components/CategoryFilter';
 import AZJump from './components/AZJump';
@@ -18,24 +18,30 @@ function App() {
   const [selectedTag, setSelectedTag] = useState(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  // Filter tags based on search term and selected categories
+  // Filter tags based on search term and selected categories (robust)
   const filteredTags = useMemo(() => {
-    return tagsData.filter(tag => {
-      // Check search term against name, description, and categories
-      const matchesSearch = 
-        tag.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        tag.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        tag.categories.some(category => 
-          category.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-      
-      // Check category filter
-      const matchesCategory = 
-        selectedCategories.length === 0 || 
-        tag.categories.some(category => 
-          selectedCategories.includes(category)
-        );
-      
+    const term = (searchTerm || '').trim().toLowerCase();
+    return tagsData.filter((tag) => {
+      const name = (tag?.name || '').toLowerCase();
+      const desc = (tag?.description || '').toLowerCase();
+      const cats = Array.isArray(tag?.categories) ? tag.categories : [];
+      const attrs = Array.isArray(tag?.attributes) ? tag.attributes : [];
+      const attrNames = attrs
+        .map(a => (a?.name || ''))
+        .filter(Boolean)
+        .map(s => s.toLowerCase());
+
+      const matchesSearch =
+        term.length === 0 ||
+        name.includes(term) ||
+        desc.includes(term) ||
+        cats.some(c => (c || '').toLowerCase().includes(term)) ||
+        attrNames.some(n => n.includes(term));
+
+      const matchesCategory =
+        selectedCategories.length === 0 ||
+        cats.some(c => selectedCategories.includes(c));
+
       return matchesSearch && matchesCategory;
     });
   }, [searchTerm, selectedCategories]);
