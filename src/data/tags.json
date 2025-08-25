@@ -1,0 +1,154 @@
+[
+  {
+    "name": "a",
+    "categories": ["Text", "Interactive"],
+    "description": "Defines a hyperlink.",
+    "attributes": [
+      {"name":"href","type":"URL","required":true,"description":"Target link URL"},
+      {"name":"target","type":"string","required":false,"description":"Where to open the link"},
+      {"name":"rel","type":"string","required":false,"description":"Relationship between current document and linked document"}
+    ],
+    "example": "<a href=\"https://example.com\" target=\"_blank\">Visit Example</a>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a",
+    "notes": "Use rel=\"noopener\" with target=\"_blank\" for security."
+  },
+  {
+    "name": "img",
+    "categories": ["Media"],
+    "description": "Embeds an image into the page.",
+    "attributes": [
+      {"name":"src","type":"URL","required":true,"description":"Image source"},
+      {"name":"alt","type":"string","required":true,"description":"Text alternative for accessibility"},
+      {"name":"width","type":"number","required":false,"description":"Image width"},
+      {"name":"height","type":"number","required":false,"description":"Image height"}
+    ],
+    "example": "<img src=\"cat.jpg\" alt=\"A cute cat\" />",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
+    "notes": "Always provide alt text for accessibility."
+  },
+  {
+    "name": "div",
+    "categories": ["Content"],
+    "description": "Generic container for flow content.",
+    "attributes": [
+      {"name":"class","type":"string","required":false,"description":"CSS class names"},
+      {"name":"id","type":"string","required":false,"description":"Unique identifier"}
+    ],
+    "example": "<div class=\"container\">Content here</div>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/div",
+    "notes": "Use semantic elements like <main>, <section>, <article> when appropriate."
+  },
+  {
+    "name": "form",
+    "categories": ["Forms"],
+    "description": "Represents a document section containing interactive controls for submitting information.",
+    "attributes": [
+      {"name":"action","type":"URL","required":false,"description":"URL to submit form to"},
+      {"name":"method","type":"string","required":false,"description":"HTTP method for form submission"}
+    ],
+    "example": "<form action=\"/submit\" method=\"post\">\n  <input type=\"text\" name=\"username\" />\n  <button type=\"submit\">Submit</button>\n</form>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
+    "notes": "Always associate form controls with labels for accessibility."
+  },
+  {
+    "name": "input",
+    "categories": ["Forms"],
+    "description": "Used to create interactive controls for web-based forms.",
+    "attributes": [
+      {"name":"type","type":"string","required":false,"description":"Type of control to display"},
+      {"name":"name","type":"string","required":false,"description":"Name of the control"},
+      {"name":"value","type":"string","required":false,"description":"Initial value"},
+      {"name":"placeholder","type":"string","required":false,"description":"Hint text"}
+    ],
+    "example": "<input type=\"text\" name=\"username\" placeholder=\"Enter your username\" />",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input",
+    "notes": "Different input types provide different keyboard layouts on mobile devices."
+  },
+  {
+    "name": "table",
+    "categories": ["Table"],
+    "description": "Represents tabular data.",
+    "attributes": [
+      {"name":"border","type":"number","required":false,"description":"Border width"}
+    ],
+    "example": "<table>\n  <tr>\n    <th>Header 1</th>\n    <th>Header 2</th>\n  </tr>\n  <tr>\n    <td>Data 1</td>\n    <td>Data 2</td>\n  </tr>\n</table>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table",
+    "notes": "Use <thead>, <tbody>, and <tfoot> for better structure."
+  },
+  {
+    "name": "h1",
+    "categories": ["Text"],
+    "description": "Highest level heading element.",
+    "attributes": [],
+    "example": "<h1>Main Heading</h1>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/h1",
+    "notes": "Use only one <h1> per page for SEO and accessibility."
+  },
+  {
+    "name": "p",
+    "categories": ["Text"],
+    "description": "Represents a paragraph.",
+    "attributes": [],
+    "example": "<p>This is a paragraph of text.</p>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p",
+    "notes": "Paragraphs are block-level elements."
+  },
+  {
+    "name": "script",
+    "categories": ["Scripting"],
+    "description": "Embeds or references executable code.",
+    "attributes": [
+      {"name":"src","type":"URL","required":false,"description":"External script resource"},
+      {"name":"type","type":"string","required":false,"description":"MIME type of the script"}
+    ],
+    "example": "<script src=\"app.js\"></script>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script",
+    "notes": "Place scripts at the end of <body> or use async/defer attributes."
+  },
+  {
+    "name": "meta",
+    "categories": ["Metadata"],
+    "description": "Represents metadata that cannot be represented by other HTML meta-related elements.",
+    "attributes": [
+      {"name":"charset","type":"string","required":false,"description":"Character encoding declaration"},
+      {"name":"name","type":"string","required":false,"description":"Metadata name"},
+      {"name":"content","type":"string","required":false,"description":"Metadata value"}
+    ],
+    "example": "<meta charset=\"utf-8\" />",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta",
+    "notes": "Meta tags must be in the <head> section."
+  },
+  {
+    "name": "audio",
+    "categories": ["Media"],
+    "description": "Embeds sound content in documents.",
+    "attributes": [
+      {"name":"src","type":"URL","required":false,"description":"Audio source"},
+      {"name":"controls","type":"boolean","required":false,"description":"Show browser controls"}
+    ],
+    "example": "<audio controls>\n  <source src=\"audio.mp3\" type=\"audio/mpeg\">\n  Your browser does not support the audio element.\n</audio>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
+    "notes": "Always provide fallback content for older browsers."
+  },
+  {
+    "name": "button",
+    "categories": ["Interactive"],
+    "description": "Represents a clickable button.",
+    "attributes": [
+      {"name":"type","type":"string","required":false,"description":"Button type (submit, reset, button)"},
+      {"name":"disabled","type":"boolean","required":false,"description":"Disable the button"}
+    ],
+    "example": "<button type=\"submit\">Submit Form</button>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button",
+    "notes": "Buttons are better for accessibility than <div> or <span> elements."
+  },
+  {
+    "name": "center",
+    "categories": ["Deprecated"],
+    "description": "Deprecated element for centering content.",
+    "attributes": [],
+    "example": "<center>Deprecated content</center>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/center",
+    "notes": "Use CSS instead of this deprecated element."
+  }
+]

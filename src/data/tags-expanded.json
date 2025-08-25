@@ -1,0 +1,201 @@
+[
+  {
+    "name": "a",
+    "categories": ["Text", "Interactive"],
+    "description": "Defines a hyperlink.",
+    "attributes": [
+      {"name":"href","type":"URL","required":true,"description":"Target link URL"},
+      {"name":"target","type":"string","required":false,"description":"Where to open the link"},
+      {"name":"rel","type":"string","required":false,"description":"Relationship between current document and linked document"}
+    ],
+    "example": "<a href=\"https://example.com\" target=\"_blank\">Visit Example</a>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a",
+    "notes": "Use rel=\"noopener\" with target=\"_blank\" for security."
+  },
+  {
+    "name": "abbr",
+    "categories": ["Text"],
+    "description": "Represents an abbreviation or acronym.",
+    "attributes": [
+      {"name":"title","type":"string","required":false,"description":"Full description of the abbreviation"}
+    ],
+    "example": "<abbr title=\"Hypertext Markup Language\">HTML</abbr>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr",
+    "notes": "Use the title attribute to provide the full expansion."
+  },
+  {
+    "name": "address",
+    "categories": ["Content"],
+    "description": "Represents contact information for the author/owner of a document.",
+    "attributes": [],
+    "example": "<address>Written by <a href=\"mailto:webmaster@example.com\">Jon Doe</a></address>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address",
+    "notes": "Typically used in the <footer> section of a document."
+  },
+  {
+    "name": "area",
+    "categories": ["Media"],
+    "description": "Defines an area inside an image map.",
+    "attributes": [
+      {"name":"shape","type":"string","required":false,"description":"Shape of the area (rect, circle, poly, default)"},
+      {"name":"coords","type":"string","required":false,"description":"Coordinates for the shape"},
+      {"name":"href","type":"URL","required":false,"description":"Target link URL"}
+    ],
+    "example": "<area shape=\"rect\" coords=\"0,0,100,100\" href=\"link.html\" alt=\"Link\">",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/area",
+    "notes": "Used within a <map> element to define clickable areas."
+  },
+  {
+    "name": "article",
+    "categories": ["Content"],
+    "description": "Represents a self-contained composition in a document.",
+    "attributes": [],
+    "example": "<article><h2>Article Title</h2><p>Article content...</p></article>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article",
+    "notes": "Use for blog posts, forum posts, news stories, comments, etc."
+  },
+  {
+    "name": "aside",
+    "categories": ["Content"],
+    "description": "Represents content indirectly related to the main content.",
+    "attributes": [],
+    "example": "<aside><h3>Related Links</h3><ul><li><a href=\"#\">Link 1</a></li></ul></aside>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside",
+    "notes": "Often used for sidebars, pull quotes, or advertisements."
+  },
+  {
+    "name": "audio",
+    "categories": ["Media"],
+    "description": "Embeds sound content in documents.",
+    "attributes": [
+      {"name":"src","type":"URL","required":false,"description":"Audio source"},
+      {"name":"controls","type":"boolean","required":false,"description":"Show browser controls"},
+      {"name":"autoplay","type":"boolean","required":false,"description":"Automatically start playing"}
+    ],
+    "example": "<audio controls>\n  <source src=\"audio.mp3\" type=\"audio/mpeg\">\n  Your browser does not support the audio element.\n</audio>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio",
+    "notes": "Always provide fallback content for older browsers."
+  },
+  {
+    "name": "b",
+    "categories": ["Text"],
+    "description": "Represents text stylistically different from normal text, without conveying extra importance.",
+    "attributes": [],
+    "example": "<p>This text is normal, <b>this text is bold</b>.</p>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/b",
+    "notes": "Use <strong> for text of greater importance, not just stylistic bolding."
+  },
+  {
+    "name": "base",
+    "categories": ["Metadata"],
+    "description": "Specifies the base URL to use for all relative URLs in a document.",
+    "attributes": [
+      {"name":"href","type":"URL","required":false,"description":"Base URL for relative URLs"},
+      {"name":"target","type":"string","required":false,"description":"Default target for all hyperlinks"}
+    ],
+    "example": "<base href=\"https://example.com/\" target=\"_blank\">",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base",
+    "notes": "Must be placed in the <head> section. Only one <base> element is allowed."
+  },
+  {
+    "name": "bdi",
+    "categories": ["Text"],
+    "description": "Isolates a span of text that might be formatted in a different direction.",
+    "attributes": [],
+    "example": "<p>Username: <bdi>رجلإإليك</bdi></p>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdi",
+    "notes": "Useful for user-generated content with unknown text direction."
+  },
+  {
+    "name": "bdo",
+    "categories": ["Text"],
+    "description": "Overrides the current text direction.",
+    "attributes": [
+      {"name":"dir","type":"string","required":true,"description":"Text direction (ltr or rtl)"}
+    ],
+    "example": "<bdo dir=\"rtl\">This text will go right-to-left.</bdo>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/bdo",
+    "notes": "Use dir=\"ltr\" for left-to-right or dir=\"rtl\" for right-to-left."
+  },
+  {
+    "name": "blockquote",
+    "categories": ["Text"],
+    "description": "Represents a section that is quoted from another source.",
+    "attributes": [
+      {"name":"cite","type":"URL","required":false,"description":"URL of the source of the quotation"}
+    ],
+    "example": "<blockquote cite=\"https://example.com/source\">Quote text here</blockquote>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote",
+    "notes": "Use <cite> element to reference the source."
+  },
+  {
+    "name": "body",
+    "categories": ["Structure"],
+    "description": "Represents the content of an HTML document.",
+    "attributes": [
+      {"name":"bgcolor","type":"string","required":false,"description":"Background color (deprecated)"},
+      {"name":"background","type":"string","required":false,"description":"Background image URL (deprecated)"}
+    ],
+    "example": "<body><h1>Page Title</h1><p>Page content...</p></body>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body",
+    "notes": "There can be only one <body> element in a document."
+  },
+  {
+    "name": "br",
+    "categories": ["Text"],
+    "description": "Produces a line break in text.",
+    "attributes": [],
+    "example": "<p>Line 1<br>Line 2</p>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/br",
+    "notes": "Self-closing tag. Use sparingly and consider CSS for spacing."
+  },
+  {
+    "name": "button",
+    "categories": ["Interactive"],
+    "description": "Represents a clickable button.",
+    "attributes": [
+      {"name":"type","type":"string","required":false,"description":"Button type (submit, reset, button)"},
+      {"name":"disabled","type":"boolean","required":false,"description":"Disable the button"},
+      {"name":"autofocus","type":"boolean","required":false,"description":"Automatically focus the button"}
+    ],
+    "example": "<button type=\"submit\">Submit Form</button>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button",
+    "notes": "Buttons are better for accessibility than <div> or <span> elements."
+  },
+  {
+    "name": "canvas",
+    "categories": ["Media", "Scripting"],
+    "description": "Used to draw graphics via scripting (usually JavaScript).",
+    "attributes": [
+      {"name":"width","type":"number","required":false,"description":"Width of the canvas"},
+      {"name":"height","type":"number","required":false,"description":"Height of the canvas"}
+    ],
+    "example": "<canvas id=\"myCanvas\" width=\"200\" height=\"100\"></canvas>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas",
+    "notes": "Requires JavaScript to draw graphics. Not accessible by default."
+  },
+  {
+    "name": "caption",
+    "categories": ["Table"],
+    "description": "Represents the title of a table.",
+    "attributes": [],
+    "example": "<table><caption>Monthly Savings</caption><tr><th>Month</th><th>Savings</th></tr></table>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/caption",
+    "notes": "Must be the first child of its parent <table> element."
+  },
+  {
+    "name": "cite",
+    "categories": ["Text"],
+    "description": "Represents the title of a work (e.g. a book, article, poem, song, etc.).",
+    "attributes": [],
+    "example": "<p><cite>The Scream</cite> by Edvard Munch. Painted in 1893.</p>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite",
+    "notes": "Typically displayed in italics by browsers."
+  },
+  {
+    "name": "code",
+    "categories": ["Text"],
+    "description": "Represents a fragment of computer code.",
+    "attributes": [],
+    "example": "<p>Use the <code>strong</code> element for important text.</p>",
+    "mdn": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code",
